@@ -1,11 +1,11 @@
-## rt_tables
-# {{ ansible_managed }}
-# Do not edit manually
+{{ '## rt_tables' }}
+{{ '# ' + ansible_managed }}
+{{ '# Do not edit manually' }}
 
 {{ '255 local
 254 main
 253 default
 0 unspec' }}
-{% for t in iproute_tables %}
+{% for t in hostvars[inventory_hostname]['iproute_tables'] %}
 {{ t.id + ' ' + t.table }}
 {% endfor %}

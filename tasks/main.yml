@@ -1,9 +1,11 @@
 ---
-- name: Make iproute tables
+- name: iproute | Deploy iproute tables
   template:
     src: 'rt_tables.j2'
     dest: '/etc/iproute2/rt_tables'
     owner: 'root'
     group: 'root'
     mode: '0644'
-  when: "hostvars[inventory_hostname]['iproute_tables'] is defined"
+  when:
+  - "hostvars[inventory_hostname]['iproute_tables'] is defined"
+  - "hostvars[inventory_hostname]['iproute_tables'] != ''"
