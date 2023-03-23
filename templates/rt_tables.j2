@@ -6,6 +6,9 @@
 254 main
 253 default
 0 unspec' }}
-{% for t in hostvars[inventory_hostname]['iproute_tables'] %}
-{{ t.id + ' ' + t.table }}
+{% for t in vars['iproute_tables'] %}
+{% if (t['id'] is defined and t['id'] != '') and (t['name'] is defined
+  and t['name'] != '') %}
+{{ t['id'] ~ ' ' ~ t['name'] }}
+{% endif %}
 {% endfor %}

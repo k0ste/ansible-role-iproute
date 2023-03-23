@@ -1,16 +1,15 @@
 ---
 galaxy_info:
   author: "Konstantin Shalygin <k0ste@k0ste.ru>"
-  issue_tracker_url: "http://jira.opentech.local/secure/Dashboard.jspa"
-  description: "Simple helper for iproute tables."
-  company: "LLC Open Technologies"
+  issue_tracker_url: "https://github.com/k0ste/ansible-role-iproute"
+  description: "Management for iproute tables"
+  company: "YASB"
   license: "GPL"
-  min_ansible_version: "1.8"
+  min_ansible_version: "3.0.0"
   platforms:
-  - name: Archlinux
-    versions:
-    - any
-  categories:
-  - system
-  - networking
+    - name: "EL"
+      versions:
+        - 'all'
+  galaxy_tags:
+    - 'system'
 dependencies: []

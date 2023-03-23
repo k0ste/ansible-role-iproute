@@ -1,0 +1,5 @@
+---
+- name: "iproute | Set facts about iproute tables"
+  ansible.builtin.set_fact:
+    iproute_tables: "{{ hostvars[inventory_hostname]['iproute'] |
+      community.general.json_query('[].tables[]') }}"

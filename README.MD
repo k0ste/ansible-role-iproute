@@ -1,5 +1,7 @@
 # ansible-iproute
 
+Management for iproute tables
+
 ## Requirements
 
 * Ansible 1.8;
@@ -8,9 +10,10 @@
 
 ```yaml
 ---
-iproute_tables:
-- id: '1082'
-  table: 'telia'
-- id: '3054'
-  table: 'deltax'
+iproute:
+  - tables:
+    - id: '1082'
+      name: 'telia'
+    - id: '3054'
+      name: 'deltax'
 ```

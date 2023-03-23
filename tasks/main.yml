@@ -1,11 +1,9 @@
 ---
-- name: iproute | Deploy iproute tables
-  template:
-    src: 'rt_tables.j2'
-    dest: '/etc/iproute2/rt_tables'
-    owner: 'root'
-    group: 'root'
-    mode: '0644'
+- ansible.builtin.import_tasks:
+    file: "pre_requisite.yml"
+- ansible.builtin.include_tasks:
+    file: "deploy.yml"
   when:
-  - "hostvars[inventory_hostname]['iproute_tables'] is defined"
-  - "hostvars[inventory_hostname]['iproute_tables'] != ''"
+   - "vars['iproute_tables'] is defined"
+   - "vars['iproute_tables'] != []"
+   - "vars['iproute_tables'] != ''"
