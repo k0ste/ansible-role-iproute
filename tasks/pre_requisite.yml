@@ -3,3 +3,14 @@
   ansible.builtin.set_fact:
     iproute_tables: "{{ hostvars[inventory_hostname]['iproute'] |
       community.general.json_query('[].tables[]') }}"
+- name: "iproute | Create catalogs"
+  ansible.builtin.file:
+    path: "/etc/iproute2"
+    state: "directory"
+    owner: "root"
+    group: "root"
+    mode: "0755"
+  when:
+    - "vars['iproute_tables'] is defined"
+    - "vars['iproute_tables'] != []"
+    - "vars['iproute_tables'] != ''"
