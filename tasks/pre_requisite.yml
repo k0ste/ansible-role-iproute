@@ -14,3 +14,4 @@
     - "vars['iproute_tables'] is defined"
     - "vars['iproute_tables'] != []"
     - "vars['iproute_tables'] != ''"
+    - "vars['iproute_tables'] != None"

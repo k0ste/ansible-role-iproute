@@ -3,9 +3,5 @@
   ansible.builtin.import_tasks:
     file: "pre_requisite.yml"
 - name: "iproute | Include iprotue deployment tasks"
-  ansible.builtin.include_tasks:
+  ansible.builtin.import_tasks:
     file: "deploy.yml"
-  when:
-    - "vars['iproute_tables'] is defined"
-    - "vars['iproute_tables'] != []"
-    - "vars['iproute_tables'] != ''"

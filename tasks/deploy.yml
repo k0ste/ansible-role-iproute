@@ -7,5 +7,7 @@
     group: "root"
     mode: "0644"
   when:
-    - "hostvars[inventory_hostname]['iproute_tables'] is defined"
-    - "hostvars[inventory_hostname]['iproute_tables'] != ''"
+    - "vars['iproute_tables'] is defined"
+    - "vars['iproute_tables'] != []"
+    - "vars['iproute_tables'] != ''"
+    - "vars['iproute_tables'] != None"
