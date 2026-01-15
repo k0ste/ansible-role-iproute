@@ -6,9 +6,9 @@
 254 main
 253 default
 0 unspec' }}
-{% for t in vars['iproute_tables'] %}
-{% if (t['id'] is defined and t['id'] != '') and (t['name'] is defined
-  and t['name'] != '') %}
+{% for t in lookup('ansible.builtin.vars', 'iproute_tables') %}
+{% if (t['id'] is defined and t['id'] not in ['', [], '[]', None]) and
+  (t['name'] is defined and t['name'] not in ['', [], '[]', None]) %}
 {{ t['id'] ~ ' ' ~ t['name'] }}
 {% endif %}
 {% endfor %}

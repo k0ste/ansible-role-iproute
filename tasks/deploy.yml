@@ -7,7 +7,5 @@
     group: "root"
     mode: "0644"
   when:
-    - "vars['iproute_tables'] is defined"
-    - "vars['iproute_tables'] != []"
-    - "vars['iproute_tables'] != ''"
-    - "vars['iproute_tables'] != None"
+    - "lookup('ansible.builtin.vars', 'iproute_tables',
+      default='') not in ['', [], '[]', None]"
